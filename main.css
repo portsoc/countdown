@@ -64,7 +64,7 @@ h1 {
 }
 
 .random-numberbox {
-  padding: .3em .5em 0.1em;
+  padding: .3em 0em 0.1em .3em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,6 +74,7 @@ h1 {
   font-family: "LCDBOLD", monospace;
   font-weight: normal;
   font-size: 5rem;
+  letter-spacing: .3em;
   box-shadow: 0.1em 0.1em 0.4em black inset;
 }
 
