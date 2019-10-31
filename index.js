@@ -8,6 +8,7 @@ const DELAY_AFTER_TILE_REVEAL = 2000;
 const DELAY_BEFORE_CLOCK_START = 1000;
 
 const bigBtn = document.querySelector('#big');
+const backBtn = document.querySelector('#back');
 const startBtn = document.querySelector('#start');
 const targetEl = document.querySelector('#random .random-numberbox');
 const numberBoxes = document.querySelectorAll('#numbers .numberbox');
@@ -26,6 +27,10 @@ function init() {
   remainingSmallNumbers = SMALL_NUMBERS.slice();
   target = '000';
   updateUI();
+}
+
+function restart() {
+  location.reload();
 }
 
 function updateUI() {
@@ -52,6 +57,7 @@ function updateUI() {
 
 bigBtn.addEventListener('click', addBigNumber);
 startBtn.addEventListener('click', startGame);
+backBtn.addEventListener('click', restart);
 init();
 console.log('game is now set up');
 

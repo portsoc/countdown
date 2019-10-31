@@ -107,3 +107,16 @@ body {
 
 body.stage1 .stage2 { display: none !important; }
 body.stage2 .stage1 { display: none !important; }
+
+#back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3em;
+  width: 3em;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none;
+  background-color: transparent;
+  font-size: 200%;
+}
