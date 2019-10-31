@@ -2,6 +2,11 @@ const BIG_NUMBERS = [25, 50, 75, 100];
 const SMALL_NUMBERS = [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5,
                         6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 
+const DELAY_BETWEEN_TILES = 500;
+const DELAY_SPINNER = 5000;
+const DELAY_AFTER_TILE_REVEAL = 500;
+const DELAY_BEFORE_CLOCK_START = 1000;
+
 const bigBtn = document.querySelector('#big');
 const startBtn = document.querySelector('#start');
 const targetEl = document.querySelector('#random .random-numberbox');
@@ -19,6 +24,7 @@ function init() {
   selectedNumbers = [];
   remainingBigNumbers = BIG_NUMBERS.slice();
   remainingSmallNumbers = SMALL_NUMBERS.slice();
+  target = '000';
   updateUI();
 }
 
@@ -59,22 +65,16 @@ function addBigNumber() {
   updateUI();
 }
 
+function delay(ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 function addSmallNumber() {
   const num = selectRandom(remainingSmallNumbers);
   selectedNumbers.push(num);
   updateUI();
-}
-
-function startGame() {
-  while (selectedNumbers.length < 6) {
-    addSmallNumber();
-  }
-
-  started = true;
-  populateTiles();
-  generateRandomNumber();
-
-  startClock();
 }
 
 function populateTiles() {
@@ -82,6 +82,20 @@ function populateTiles() {
     numberBoxes[i].textContent = selectedNumbers[i];
   }
   updateUI();
+}
+
+function spinAndGenerateTarget() {
+  return new Promise((resolve, reject) => {
+    const startTime = Date.now();
+    requestAnimationFrame(function spinner() {
+      if ((Date.now() - startTime) < DELAY_SPINNER) {
+        generateRandomNumber();
+        requestAnimationFrame(spinner);
+      } else {
+        resolve();
+      }
+    })
+  });
 }
 
 function generateRandomNumber() {
@@ -97,6 +111,25 @@ function selectRandom(arr) {
   arr.splice(index, 1);
 
   return retval;
+}
+
+async function startGame() {
+  startBtn.disabled = true;
+  bigBtn.disabled = true;
+
+  while (selectedNumbers.length < 6) {
+    addSmallNumber();
+    await delay(DELAY_BETWEEN_TILES);
+  }
+
+  started = true;
+  populateTiles();
+  await delay(DELAY_AFTER_TILE_REVEAL);
+  await spinAndGenerateTarget();
+
+  await delay(DELAY_BEFORE_CLOCK_START);
+
+  startClock();
 }
 
 
