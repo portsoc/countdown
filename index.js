@@ -165,14 +165,18 @@ const audio = document.querySelector('audio');
 let startTime;
 async function startClock() {
   startTime = Date.now();
-  await audio.play();
+  try {
+    await audio.play();
+  } catch (e) {
+    console.error('error playing sound', e);
+  }
   rotate();
 }
 function rotate() {
   const angleSmooth = (Date.now()-startTime)/1000*anglePerSecond;
   const angleChoppy = angleSmooth - (angleSmooth % anglePerSecond);
-  rotateElSmooth.setAttribute('transform', `rotate(${angleSmooth})`);
-  rotateElChoppy.setAttribute('transform', `rotate(${angleChoppy})`);
+  rotateElSmooth.setAttribute('transform', `translate(200,200)rotate(${angleSmooth})translate(-200,-200)`);
+  rotateElChoppy.setAttribute('transform', `translate(200,200)rotate(${angleChoppy})translate(-200,-200)`);
   if (angleSmooth < 180) requestAnimationFrame(rotate);
 }
 // document.addEventListener('click', init);

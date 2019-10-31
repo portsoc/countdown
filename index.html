@@ -34,9 +34,6 @@
     <title>countdownclock</title>
 
     <style>
-        * {
-            transform-origin: center center;
-        }
         #hand { fill: #4F454A; }
         #background, #blanker, #lightblanker { fill: #AFA4A2; }
         #light { fill: url(#g1); }
@@ -54,10 +51,10 @@
     <path
         id="light"
         d="M 200 4 L 200 0 A 200 200, 0, 1 1, 200 400 "
-        transform="scale(0.95,0.95)"
+        transform="translate(200,200)scale(0.95,0.95)translate(-200,-200)"
     ></path>
 
-    <g id="blanker" transform="rotate(0)">
+    <g id="blanker" transform="translate(200,200)rotate(0)translate(-200,-200)">
         <path d="M 200 4 L 200 0 A 200 200, 0, 1 1, 200 400" ></path>
         <circle id="lightblanker" cx="200" cy="200" r="100"></circle>
     </g>
@@ -65,20 +62,20 @@
     <g id="pips" fill="#857878">
         <rect id="crossvert" x="198" y="0" width="4" height="400"></rect>
         <rect id="crosshoriz" x="0" y="198" width="400" height="4"></rect>
-        <rect x="198" y="20" width="4" height="40" transform="rotate(30)"></rect>
-        <rect x="198" y="20" width="4" height="40" transform="rotate(60)"></rect>
-        <rect x="198" y="20" width="4" height="40" transform="rotate(120)"></rect>
-        <rect x="198" y="20" width="4" height="40" transform="rotate(150)"></rect>
-        <rect x="198" y="20" width="4" height="40" transform="rotate(210)"></rect>
-        <rect x="198" y="20" width="4" height="40" transform="rotate(240)"></rect>
-        <rect x="198" y="20" width="4" height="40" transform="rotate(300)"></rect>
-        <rect x="198" y="20" width="4" height="40" transform="rotate(330)"></rect>
+        <rect x="198" y="20" width="4" height="40" transform="translate(200,200)rotate(30)translate(-200,-200)"></rect>
+        <rect x="198" y="20" width="4" height="40" transform="translate(200,200)rotate(60)translate(-200,-200)"></rect>
+        <rect x="198" y="20" width="4" height="40" transform="translate(200,200)rotate(120)translate(-200,-200)"></rect>
+        <rect x="198" y="20" width="4" height="40" transform="translate(200,200)rotate(150)translate(-200,-200)"></rect>
+        <rect x="198" y="20" width="4" height="40" transform="translate(200,200)rotate(210)translate(-200,-200)"></rect>
+        <rect x="198" y="20" width="4" height="40" transform="translate(200,200)rotate(240)translate(-200,-200)"></rect>
+        <rect x="198" y="20" width="4" height="40" transform="translate(200,200)rotate(300)translate(-200,-200)"></rect>
+        <rect x="198" y="20" width="4" height="40" transform="translate(200,200)rotate(330)translate(-200,-200)"></rect>
     </g>
 
     <g id="hand">
         <circle id="handcentre" cx="200" cy="200" r="25"></circle>
         <path
-            transform="rotate(0)"
+            transform="translate(200,200)rotate(0)translate(-200,-200)"
             id="handpointer"
             d="M185,200 L200,20 215,200 Z">
         </path>
