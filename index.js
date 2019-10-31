@@ -3,8 +3,8 @@ const SMALL_NUMBERS = [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5,
                         6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 
 const DELAY_BETWEEN_TILES = 500;
-const DELAY_SPINNER = 5000;
-const DELAY_AFTER_TILE_REVEAL = 500;
+const DELAY_SPINNER = 3000;
+const DELAY_AFTER_TILE_REVEAL = 2000;
 const DELAY_BEFORE_CLOCK_START = 1000;
 
 const bigBtn = document.querySelector('#big');
