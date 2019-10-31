@@ -90,4 +90,21 @@ body {
   background-color: #eee;
   color: black;
   align-items: center;
+  font-family: sans-serif;
 }
+
+.hidden {
+  display: none;
+}
+
+#instructions {
+  margin: auto 0;
+  max-width: 20em;
+}
+
+#instructions p {
+  margin: 1em;
+}
+
+body.stage1 .stage2 { display: none !important; }
+body.stage2 .stage1 { display: none !important; }

@@ -3,30 +3,37 @@
 <link rel="stylesheet" href="LCDBOLD/font.css">
 <link rel="stylesheet" href="main.css">
 
+<body class="stage1">
+
 <h1>Countdown Numbers Game</h1>
 
 <section id="random">
-  <div class="random-numberbox">952</div>
+  <div class="random-numberbox">000</div>
 </section>
 
 <section id="numbers">
-  <div class="numberbox filled">43</div>
-  <div class="numberbox filled">43</div>
-  <div class="numberbox filled">43</div>
-  <div class="numberbox filled">43</div>
-  <div class="numberbox filled">43</div>
-  <div class="numberbox filled">43</div>
+  <div class="numberbox"></div>
+  <div class="numberbox"></div>
+  <div class="numberbox"></div>
+  <div class="numberbox"></div>
+  <div class="numberbox"></div>
+  <div class="numberbox"></div>
 </section>
 
+<section id="instructions" class="stage1">
+  <p>Press "big" to fill up-to four tiles with randomly selected big numbers (from 25, 50, 75, 100).
+  <p>Press "start" and the remaining blank spaces will be filled with small numbers.
+  <p>After you press "start", the numbers will be revealed and a random target will be generated.
+</section>
 
-<svg id=clock width="400px" height="400px" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg id="clock" class="stage2" width="400px" height="400px" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <title>countdownclock</title>
 
     <style>
         * {
             transform-origin: center center;
         }
-        #hand { fill: #5F555A; }
+        #hand { fill: #4F454A; }
         #background, #blanker, #lightblanker { fill: #AFA4A2; }
         #light { fill: url(#g1); }
     </style>
@@ -69,41 +76,20 @@
         <path
             transform="rotate(0)"
             id="handpointer"
-            fill="#5F555A"
             d="M185,200 L200,20 215,200 Z">
         </path>
     </g>
 </svg>
 
-    <!-- <audio xmlns="http://www.w3.org/1999/xhtml">
-      <source src="sounds.mp3" type="audio/mpeg"></source>
-    </audio>
+<audio xmlns="http://www.w3.org/1999/xhtml">
+  <source src="sounds.mp3" type="audio/mpeg"></source>
+</audio>
 
-    <script>
-      const anglePerSecond = 180/30;
-      const centre = {x:200, y:200};
-      const rotateElSmooth = document.getElementById('handpointer');
-      const rotateElChoppy = document.getElementById('blanker');
-      const audio = document.querySelector('audio');
+<section id="selection-buttons" class="stage1">
+  <button id="big">big</button>
+  <button id="start">start</button>
+</section>
 
-      let startTime;
-      async function init() {
-        startTime = Date.now();
-        await audio.play();
-        rotate();
-      }
-      function rotate() {
-        const angleSmooth = (Date.now()-startTime)/1000*anglePerSecond;
-        const angleChoppy = angleSmooth - (angleSmooth % anglePerSecond);
-        rotateElSmooth.setAttribute('transform', `rotate(${angleSmooth})`);
-        rotateElChoppy.setAttribute('transform', `rotate(${angleChoppy})`);
-        if (angleSmooth &lt; 180) requestAnimationFrame(rotate);
-      }
-      document.addEventListener('click', init);
-    </script> -->
+<script src="index.js"></script>
 
-<!-- <section id="selection-buttons">
-  <button>big</button>
-  <button>small</button>
-  <button>start</button>
-</section> -->
+</body>
