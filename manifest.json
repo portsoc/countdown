@@ -1,0 +1,21 @@
+{
+  "name": "Countdown Numbers",
+  "short_name": "countdown",
+  "icons": [{
+      "src": "./img/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./img/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "display": "standalone",
+  "start_url": "./index.html",
+  "background_color": "#eee",
+  "scope": "./",
+  "theme_color": "#0B4CB2",
+  "prefer_related_applications": false
+}
