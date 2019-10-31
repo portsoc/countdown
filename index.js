@@ -29,6 +29,9 @@ function init() {
   updateUI();
 }
 
+const vh = window.innerHeight * 0.01;
+document.body.style.setProperty('--vh', `${vh}px`);
+
 function restart() {
   location.reload();
 }
