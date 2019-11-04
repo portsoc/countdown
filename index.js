@@ -103,7 +103,7 @@ function spinAndGenerateTarget() {
       } else {
         resolve();
       }
-    })
+    });
   });
 }
 
